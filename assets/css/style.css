@@ -1,0 +1,24 @@
+h1
+{
+    text-align: center;
+}
+.accueil
+{
+    color: #E72E2E;
+    height: 2em;
+    width: 100%;
+}
+.fav
+{
+    color:#E72E2E80;
+    height: 2em;
+    width: 100%;
+}
+#map
+{
+    height: 100vh;
+}
+.bouton
+{
+    display: flex;
+}
