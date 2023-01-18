@@ -1,6 +1,11 @@
 *
 {
     text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+.carte{
+    text-align: center;
 }
 .accueil, .fav1
 {
@@ -30,8 +35,12 @@
 {
     background-color: #F27373;
     display: flex;
-
+    /* display: none; */
 }
+.active
+    {
+        display: block;
+    }
 .image
 {
     border-radius: 1rem;
@@ -53,4 +62,11 @@
 .del
 {
     color: #FFF6F6BF;
+}
+@media only screen and (max-width: 600px)
+{
+    .carte
+    {
+        display: none;
+    }
 }
