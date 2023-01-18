@@ -1,18 +1,21 @@
-h1
+*
 {
-    text-align: center;
+    text-decoration: none;
 }
-.accueil
+.accueil, .fav1
 {
     color: #E72E2E;
-    height: 2em;
-    width: 100%;
+    font-size: 2rem;
+    
 }
-.fav
+.favs, .icon
+{
+    margin: 2em;
+}
+.fav, .accueil1
 {
     color:#E72E2E80;
-    height: 2em;
-    width: 100%;
+    font-size: 2rem;
 }
 #map
 {
@@ -21,4 +24,33 @@ h1
 .bouton
 {
     display: flex;
+    justify-content: space-around;
+}
+.lieu
+{
+    background-color: #F27373;
+    display: flex;
+
+}
+.image
+{
+    border-radius: 1rem;
+    border: solid;
+    width: 8rem;
+    background-color: white;
+}
+.action
+{
+    margin-left: auto;
+    display: flex;
+    align-items: flex-start;
+}
+.save
+{
+    background-color: #FFFFFFD4;
+    position: relative;
+}
+.del
+{
+    color: #FFF6F6BF;
 }

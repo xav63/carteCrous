@@ -5,4 +5,36 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 let marker = L.marker([50.629719, 3.062781]).addTo(map);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+
+// requête HTTP en Ajax avec Fetch
+// utilisation Fetch :
+const url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=ensemble-des-lieux-de-restauration-des-crous&q=&rows=20&facet=type&facet=zone';
+fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
+        // Traitement Js
+        const lieux = res.records;
+        console.log(lieux[0]);
+        // on fait une boucle pour lire les infos du tableau (lieu)
+        for(let lieu of lieux) {
+            console.log(lieu.fields.title)
+            L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'})
+        }
+    })
+    .catch((error) => console.log("Erreur de type : " + error));
+
+    //format JSON:
+    let monObjetJSON = '{"prop1":"valeur1","prop2":"valeur2"}';
+    
+    //Format Objet:
+    let monObjet = {
+        prop1:'valeur1',
+        prop2:'valeur2',
+    }
+
+    //Transformer un objet en chaîne:
+    let objetString = JSON.stringify(monObjet)
+
+    //Transformer une chaîne en objet:
+    let objet = JSON.parse(monObjetJSON)
