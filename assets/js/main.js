@@ -1,3 +1,5 @@
+let bandeau = document.querySelector('.bandeau');
+
 //Carte Leaflet
 let map = L.map('map').setView([50.629719, 3.062781], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,11 +20,37 @@ fetch(url)
         console.log(lieux[0]);
         // on fait une boucle pour lire les infos du tableau (lieu)
         for(let lieu of lieux) {
-            console.log(lieu.fields.title)
-            L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'})
+            const marker = L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'});
+            marker.on("click", () => data(lieu.fields));
+            
         }
     })
+
     .catch((error) => console.log("Erreur de type : " + error));
+
+    
+
+
+function data(data){
+    bandeau.style.display = "flex";
+    bandeau.innerHTML =`
+    <div class="image"></div>
+    <div class="description">
+        <h2>${data.title}</h2>
+        <p>Adresse :${data.contact}</p>
+        <p>Description : ${data.infos}</p>
+    </div>
+    <div class="action">
+        <button class="save">Enregistrer</button>
+        <button id="del">X</button>
+    </div>
+    `;
+    document.getElementById("del").addEventListener("click", function () {
+        bandeau.style.display = 'none';
+
+    })
+}
+
 
     //format JSON:
     let monObjetJSON = '{"prop1":"valeur1","prop2":"valeur2"}';

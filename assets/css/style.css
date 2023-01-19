@@ -31,11 +31,10 @@
     display: flex;
     justify-content: space-around;
 }
-.lieu
+.bandeau
 {
     background-color: #F27373;
-    display: flex;
-    /* display: none; */
+    display: none;
 }
 .active
     {
@@ -50,23 +49,31 @@
 }
 .action
 {
-    margin-left: auto;
     display: flex;
     align-items: flex-start;
+    margin: 4rem;
+    margin-left: auto;
 }
 .save
 {
-    background-color: #FFFFFFD4;
-    position: relative;
+    margin: 8px;
+    border-radius: 5px;
+    border: transparent;
 }
 .del
 {
     color: #FFF6F6BF;
+    margin-left: 1rem;
+    font-size: 30px;
 }
 @media only screen and (max-width: 600px)
 {
     .carte
     {
         display: none;
+    }
+    .bandeau
+    {
+        flex-direction: column;
     }
 }
