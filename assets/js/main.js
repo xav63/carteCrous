@@ -41,7 +41,7 @@ function data(data){
         <p>Description : ${data.infos}</p>
     </div>
     <div class="action">
-        <button class="save">Enregistrer</button>
+        <button id="save">Enregistrer</button>
         <button id="del">X</button>
     </div>
     `;
