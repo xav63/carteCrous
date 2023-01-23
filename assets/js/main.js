@@ -1,4 +1,6 @@
 let bandeau = document.querySelector('.bandeau');
+let favoris = document.querySelector('.favs');
+let save = document.getElementById('save')
 
 //Carte Leaflet
 let map = L.map('map').setView([50.629719, 3.062781], 13);
@@ -17,7 +19,7 @@ fetch(url)
     .then((res) => {
         // Traitement Js
         const lieux = res.records;
-        console.log(lieux[0]);
+        //console.log(lieux[0]);
         // on fait une boucle pour lire les infos du tableau (lieu)
         for(let lieu of lieux) {
             const marker = L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'});
@@ -49,7 +51,14 @@ function data(data){
         bandeau.style.display = 'none';
 
     })
+    document.getElementById("save").addEventListener("click", function (){
+        localStorage.setItem("fav", JSON.stringify(data.title, data.contact, data.infos));
+        
+    })
+
+
 }
+
 
 
     //format JSON:
