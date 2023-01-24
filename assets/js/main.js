@@ -47,13 +47,16 @@ function data(data){
         <button id="del">X</button>
     </div>
     `;
+    //Action sur le bouton x afin de fermer le bandeau
     document.getElementById("del").addEventListener("click", function () {
         bandeau.style.display = 'none';
 
     })
+    //Action sur le bouton Enregister afin d'envoyer les informations sur le LocalStorage
     document.getElementById("save").addEventListener("click", function (){
-        localStorage.setItem("fav", JSON.stringify(data.title, data.contact, data.infos));
-        
+        localStorage.setItem("favTitle", JSON.stringify(data.title));
+        localStorage.setItem("favContact", JSON.stringify(data.contact));
+        localStorage.setItem("favInfos", JSON.stringify(data.infos));
     })
 
 
@@ -61,6 +64,7 @@ function data(data){
 
 
 
+/*
     //format JSON:
     let monObjetJSON = '{"prop1":"valeur1","prop2":"valeur2"}';
     
@@ -75,3 +79,4 @@ function data(data){
 
     //Transformer une chaîne en objet:
     let objet = JSON.parse(monObjetJSON)
+*/
