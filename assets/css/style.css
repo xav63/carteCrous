@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-around;
 }
-.bandeau
+#bandeau
 {
     background-color: #F27373;
     display: none;

@@ -1,4 +1,4 @@
-let bandeau = document.querySelector('.bandeau');
+let bandeau = document.querySelector('#bandeau');
 let favoris = document.querySelector('.favs');
 let save = document.getElementById('save')
 
@@ -53,7 +53,8 @@ function data(data){
 
     })
     //Action sur le bouton Enregister afin d'envoyer les informations sur le LocalStorage
-    document.getElementById("save").addEventListener("click", function (){
+    //1 clé par data
+    document.getElementById("save").addEventListener("click", function () {
         localStorage.setItem("favTitle", JSON.stringify(data.title));
         localStorage.setItem("favContact", JSON.stringify(data.contact));
         localStorage.setItem("favInfos", JSON.stringify(data.infos));
