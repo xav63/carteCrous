@@ -19,12 +19,43 @@ fetch(url)
     .then((res) => {
         // Traitement Js
         const lieux = res.records;
-        //console.log(lieux[0]);
+        //console.log(res);
         // on fait une boucle pour lire les infos du tableau (lieu)
         for(let lieu of lieux) {
             const marker = L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'});
-            marker.on("click", () => data(lieu.fields));
+            marker.on("click", () => {
+                data(lieu.fields)
+                function data(data){
+                    bandeau.style.display = "flex";
+                    bandeau.innerHTML =`
+                    <div class="image"></div>
+                    <div class="description">
+                        <h2>${data.title}</h2>
+                        <p>Adresse :${data.contact}</p>
+                        <p>Description : ${data.infos}</p>
+                    </div>
+                    <div class="action">
+                        <button id="save">Enregistrer</button>
+                        <button id="del">X</button>
+                    </div>
+                    `;
+                    //Action sur le bouton x afin de fermer le bandeau
+                    document.getElementById("del").addEventListener("click", function () {
+                        bandeau.style.display = 'none';
+                
+                    })
+                    //Action sur le bouton Enregister afin d'envoyer les informations sur le LocalStorage
+                    
+                    document.getElementById("save").addEventListener("click", function () {
+                        let test = JSON.parse(localStorage.getItem("lieu")) || [];
+                                    let newLieu = lieu;
+                                    test.push(newLieu);
+                                    localStorage.setItem("lieu", JSON.stringify(test));
+                    
+                    alert('Le lieu a été rajouté à vos favoris');
+                    })
             
+        }});
         }
     })
 
@@ -33,35 +64,10 @@ fetch(url)
     
 
 
-function data(data){
-    bandeau.style.display = "flex";
-    bandeau.innerHTML =`
-    <div class="image"></div>
-    <div class="description">
-        <h2>${data.title}</h2>
-        <p>Adresse :${data.contact}</p>
-        <p>Description : ${data.infos}</p>
-    </div>
-    <div class="action">
-        <button id="save">Enregistrer</button>
-        <button id="del">X</button>
-    </div>
-    `;
-    //Action sur le bouton x afin de fermer le bandeau
-    document.getElementById("del").addEventListener("click", function () {
-        bandeau.style.display = 'none';
-
-    })
-    //Action sur le bouton Enregister afin d'envoyer les informations sur le LocalStorage
-    //1 clé par data
-    document.getElementById("save").addEventListener("click", function () {
-        localStorage.setItem("favTitle", JSON.stringify(data.title));
-        localStorage.setItem("favContact", JSON.stringify(data.contact));
-        localStorage.setItem("favInfos", JSON.stringify(data.infos));
-    })
 
 
-}
+
+
 
 
 
