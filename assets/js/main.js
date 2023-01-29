@@ -60,30 +60,3 @@ fetch(url)
     })
 
     .catch((error) => console.log("Erreur de type : " + error));
-
-    
-
-
-
-
-
-
-
-
-
-/*
-    //format JSON:
-    let monObjetJSON = '{"prop1":"valeur1","prop2":"valeur2"}';
-    
-    //Format Objet:
-    let monObjet = {
-        prop1:'valeur1',
-        prop2:'valeur2',
-    }
-
-    //Transformer un objet en chaîne:
-    let objetString = JSON.stringify(monObjet)
-
-    //Transformer une chaîne en objet:
-    let objet = JSON.parse(monObjetJSON)
-*/
