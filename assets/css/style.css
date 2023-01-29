@@ -44,9 +44,15 @@
 .image
 {
     border-radius: 1rem;
-    border: solid;
-    width: 8rem;
+    border: transparent;
     background-color: white;
+    margin: 1rem;
+    padding: 2rem;
+}
+.logo
+{
+    height: 3rem;
+    margin-top: 3rem;
 }
 .action
 {
@@ -60,6 +66,8 @@
     border-radius: 10px;
     border: transparent;
     cursor: pointer;
+    background-color: #b46161;
+    color: white;
 }
 #del
 {
@@ -67,6 +75,8 @@
     margin-left: 1rem;
     border: transparent;
     cursor: pointer;
+    background-color: #b46161;
+    color: white;
 }
 @media only screen and (max-width: 600px)
 {
@@ -74,9 +84,17 @@
     {
         display: none;
     }
-    .bandeau
+    #bandeau
     {
         flex-direction: column;
     }
-    
+    .image
+    {
+        display: none;
+    }
+    .action
+    {
+        justify-content: center;
+        margin-left: 0;
+    }
 }

@@ -5,7 +5,7 @@ let bandeau = document.querySelector('#bandeau');
 for (let i = 0; i <= test.length ; i++){
 bandeau.style.display = "flex";
 bandeau.innerHTML += `
-<div class="image"></div>
+<div class="image"><img class="logo"src="assets/image/Crous-logo-lille-nord-pas-de-calais.webp" alt="Logo Crous"></div>
 <div class="description">
     <h2>${test[i].fields.title}</h2>
     <p>Adresse :${test[i].fields.contact}</p>
@@ -16,7 +16,13 @@ bandeau.innerHTML += `
 </div>
 `;
 
+document.getElementById("del").addEventListener("click", function () {
+    bandeau.style.display = 'none';
+    localStorage.clear();
+})
+
 }
+
 
 
 

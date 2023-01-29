@@ -19,7 +19,6 @@ fetch(url)
     .then((res) => {
         // Traitement Js
         const lieux = res.records;
-        //console.log(res);
         // on fait une boucle pour lire les infos du tableau (lieu)
         for(let lieu of lieux) {
             const marker = L.marker(lieu.fields.geolocalisation).addTo(map).bindPopup(lieu.fields.title, {permanent: true, direction: 'top'});
@@ -28,7 +27,7 @@ fetch(url)
                 function data(data){
                     bandeau.style.display = "flex";
                     bandeau.innerHTML =`
-                    <div class="image"></div>
+                    <div class="image"><img class="logo"src="assets/image/Crous-logo-lille-nord-pas-de-calais.webp" alt="Logo Crous"></div>
                     <div class="description">
                         <h2>${data.title}</h2>
                         <p>Adresse :${data.contact}</p>
@@ -42,6 +41,7 @@ fetch(url)
                     //Action sur le bouton x afin de fermer le bandeau
                     document.getElementById("del").addEventListener("click", function () {
                         bandeau.style.display = 'none';
+                        
                 
                     })
                     //Action sur le bouton Enregister afin d'envoyer les informations sur le LocalStorage
