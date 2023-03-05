@@ -34,7 +34,18 @@
 #bandeau
 {
     background-color: #F27373;
-    display: none;
+    display: flex;
+}
+#bandeau_favs
+{
+    background-color: #F27373;
+    display: flex;
+    flex-direction: column;
+}
+#favs
+{
+    display: flex;
+    flex-direction: column;
 }
 .active
     {
@@ -47,11 +58,12 @@
     background-color: white;
     margin: 1rem;
     padding: 2rem;
+    height: 3rem;
+    width: 4rem;
 }
 .logo
 {
     height: 3rem;
-    margin-top: 3rem;
 }
 .action
 {
@@ -77,9 +89,18 @@
     background-color: #b46161;
     color: white;
 }
+.ens
+{
+    display: flex;
+
+}
 /* Média Queries */
 @media only screen and (max-width: 600px)
 {
+    #map
+    {
+        height: 80vh;
+    }
     .carte
     {
         display: none;

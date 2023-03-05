@@ -1,5 +1,5 @@
 let test = JSON.parse(localStorage.getItem("lieu")) || [];
-let bandeau = document.querySelector('#bandeau');
+let bandeau = document.querySelector('#bandeau_favs');
 //Création boucle pour affichage
 for (let i = 0; i <= test.length ; i++){
 bandeau.style.display = "flex";
