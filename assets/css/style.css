@@ -108,6 +108,14 @@
     #bandeau
     {
         flex-direction: column;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+        max-width: 100%;
+    }
+    #bandeau_favs
+    {
+        max-width: 100%;
     }
     .image
     {
